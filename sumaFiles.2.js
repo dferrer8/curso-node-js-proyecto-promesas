@@ -9,10 +9,3 @@ fs.readFile('./numero1', 'utf-8', (err, data) => {
     console.log(`La suma es  ${parseInt(numero1) + parseInt(numero2)}`)
   })
 })
-
-const customReadFile = (fileName) => {
-  return fs.readFile('fileName', 'utf-8', (err, data) => {
-    if (err) console.log(err)
-    return parseInt(data)
-  }
-}
