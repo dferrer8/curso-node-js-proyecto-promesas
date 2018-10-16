@@ -108,8 +108,8 @@ const getResultado = (id) => {
         .reduce((sum, x) => (sum + x) / notas.length)
       console.log(`Notas: ${nota}`)
       console.log(`Nombre: ${nombre}`)
-    })
-}
+    }
+  
 
 getResultado(1)
 /* .then(() => console.log('OK'))
