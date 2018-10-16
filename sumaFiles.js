@@ -14,5 +14,5 @@ const customReadFile = (fileName) => {
   return fs.readFile('fileName', 'utf-8', (err, data) => {
     if (err) console.log(err)
     return parseInt(data)
-  }
+  })
 }
