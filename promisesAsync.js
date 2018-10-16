@@ -14,15 +14,18 @@ getOpositor(1)
   .then((opositor) => console.log(`Opositor: ${opositor.nombre}`))
   .catch((err) => console.log(err))
 
-const getNotas = (id) => new Promise((resolve, reject) => { // find solo muestra el 1º elemento del array y id:1 tiene dos notas
-  const notasOpositor = notas.filter(nota => nota.id === id)
-  if (notasOpositor.length) resolve(notasOpositor)
-  else reject(new Error(`No se han encontrado las notas del opositor con id: ${id}.`))
-})
+const getNotas = async (id) => {
+  const notasOpositor = await notas.filter(nota => nota.id === id)
+  if (notasOpositor.length) return (notasOpositor)
+  else throw (new Error(`No se han encontrado las notas del opositor con id: ${id}.`))
+}
 
-getNotas(1)
-  .then((notasOpositor) => console.log(`Notas recibidas`)) // : ${notasOpositor.nota}`))
-  .catch((err) => console.log(err))
+getNotas(1) // revisar
+// .then(notas =>
+//   notas.forEach => (nota =>{
+//     console.log(`${nota.nota} - ${nota.prueba}`)) })
+//     // : ${notasOpositor.nota}`))
+// .catch((err) => console.log(err))
 
 // con promises.all
 const getResultado = id => {
