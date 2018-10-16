@@ -72,25 +72,24 @@ getNotas(1)
 } */
 const getNotas = (id) => new Promise((resolve, reject) => { // find solo muestra el 1º elemento del array y id:1 tiene dos notas
   const notasOpositor = notas.filter(nota => nota.id === id)
+  console.log(notasOpositor)
   if (notasOpositor.length) resolve(notasOpositor)
   else reject(new Error(`No se han encontrado las notas del opositor con id: ${id}.`))
 })
 
-getNotas(1)
+/* getNotas(1)
   .then((notasOpositor) => console.log(`Notas recibidas`)) // : ${notasOpositor.nota}`))
   .catch((err) => console.log(err))
 
-getNotas(5)
+/* getNotas(5)
   .then((notasOpositor) => console.log(`Notas recibidas`)) // : ${notasOpositor.nota}`))
-  .catch((err) => console.log('Este es el error:' + err + '------------------'))
+  .catch((err) => console.log('Este es el error:' + err + '------------------')) */
 
-/*   getNotas(1)
-  .then((notasOpositor => notasOpositor.forEach( nota => {
+getNotas(1)
+  .then(notasOpositor => notasOpositor.forEach(nota => {
     console.log(`${notasOpositor.prueba} - ${notasOpositor.nota}`)
-
   }))
-
-  .catch((err) => console.log(err)) */
+  .catch(err => console.log(err))
 // crea promesa para obtener el nombre y las notas del opositor1 (media de las notas)
 
 const getResultado = (id) => {
@@ -108,8 +107,8 @@ const getResultado = (id) => {
         .reduce((sum, x) => (sum + x) / notas.length)
       console.log(`Notas: ${nota}`)
       console.log(`Nombre: ${nombre}`)
-    }
-  
+    })
+}
 
 getResultado(1)
 /* .then(() => console.log('OK'))

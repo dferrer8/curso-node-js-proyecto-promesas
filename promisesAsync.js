@@ -20,24 +20,25 @@ const getNotas = async (id) => {
   else throw (new Error(`No se han encontrado las notas del opositor con id: ${id}.`))
 }
 
-getNotas(1) // revisar
-// .then(notas =>
-//   notas.forEach => (nota =>{
-//     console.log(`${nota.nota} - ${nota.prueba}`)) })
-//     // : ${notasOpositor.nota}`))
-// .catch((err) => console.log(err))
+getNotas(1)
+  .then(notas => notas.forEach(nota => {
+    console.log(`${nota.nota} - ${nota.prueba}`)
+  }))
+  .catch(err => console.log(err))
 
 // con promises.all
 const getResultado = id => {
   Promise.all([getOpositor(id), getNotas(id)])
     .then(datos => {
       const { nombre } = datos[0]
+      console.log(datos[1])
       const nota = datos[1]
         .map(nota => nota.nota)
-        .reduce((sum, x) => (sum, x) / datos[1].length)
+        .reduce((sum, x) => (sum + x) / datos[1].length) // correccion de la reduccion era un +, no una coma - REVISAR array.reduce  https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array/reduce
+
       console.log(`Notas: ${nota}`)
       console.log(`Nombre: ${nombre}`)
     })
     .catch(err => console.log(err))
 }
-// getResultado(1)
+getResultado(1)

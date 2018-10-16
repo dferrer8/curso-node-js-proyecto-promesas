@@ -81,7 +81,7 @@ const getResultado = id => {
       const { nombre } = datos[0]
       const nota = datos[1]
         .map(nota => nota.nota)
-        .reduce((sum, x) => (sum, x) / datos[1].length)
+        .reduce((sum, x) => (sum + x) / datos[1].length)
       console.log(`Notas: ${nota}`)
       console.log(`Nombre: ${nombre}`)
     })
