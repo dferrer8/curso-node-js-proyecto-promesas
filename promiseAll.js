@@ -18,7 +18,6 @@ Promise.all([promise1, promise2]).then((arrayValues) => {
   const sum = arrayValues.reduce((sum, x) => sum + x) // recorre el array por cada elemento x que se itera y se suma en la variable sum
   console.log(sum)
 })
-.catch(err) => console.log(err)
+  .catch((err) => console.log(err))
 
 // si no se resuelve alguna retornará un error. Dado que devuelve un array de promesas
-
