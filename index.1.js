@@ -12,18 +12,14 @@ const exchangeRate = (from, to) => {
     .get(
       `http://data.fixer.io/api/latest?access_key=61fc16cfc7fe946197cb646e814ad031&base=EUR&symbols=${from},${to}`
     )
-    .then(response => {
-      const { rates } = response.data
-      const fromDivisa = rates[from]
-      const toDivisa = rates[to]
-      console.log(fromDivisa, toDivisa)
-      console.log(toDivisa / fromDivisa)
+    .then((response) => {
+      console.log(response)
     })
-    .catch(error => {
+    .catch((error) => {
       console.log(error)
     })
 }
 
 // console.log(exchangeRate('EUR', 'USD'))
 // exchangeRate()
-exchangeRate('JPY', 'USD')
+console.log(exchangeRate('EUR', 'USD'))
