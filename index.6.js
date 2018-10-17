@@ -35,40 +35,21 @@ getCountriesAsyncAwait('COP')
 
 const convertCurrency = (from, to, amount) =>
   exchangeRate(from, to)
-    .then(cambioDivisa => (amount * cambioDivisa).toFixed(2))
+    .then(cambioDivisa => amount * cambioDivisa)
 
 convertCurrency('EUR', 'USD', 100)
   .then(total => console.log(`He obtenido ${total} dolares`))
   .catch(err => console.log(err))
 
-const getResultado = (from, to, amount) => {
-  convertCurrency(from, to, amount).then(total => {
-    getCountriesAsyncAwait(to).then(paises => {
-      console.log(`Tienes un total de ${total} ${to} y los puedes gastar en:`)
-      paises.forEach(pais => {
-        console.log(pais)
-      })
-    })
-  })
+/* const convertCurrency = (from, to, amount) => {
+  const conversion = exchangeRate(from, to)
+  console.log(`conversion: ${conversion * amount}`)
 }
 
-getResultado('EUR', 'USD', 100)
+console.log(convertCurrency('JPY', 'USD', 100)) */
 
-const getResultadoAsyncAwait = async (from, to, amount) => {
-  const cantidad = await convertCurrency(from, to, amount)
-  const paises = await getCountriesAsyncAwait(to)
-  console.log(`Tienes un total de ${cantidad} ${to} y los puedes gastar en:${paises.join(', ')}`)
+// ej. simple para pillarlo
+const test = async () => {
+  return 7
 }
-
-getResultadoAsyncAwait('EUR', 'USD', 100)
-
-const getResultadoPromise = async (from, to, amount) => {
-  const resultado = await Promise.all([
-    convertCurrency(from, to, amount),
-    getCountriesAsyncAwait(to)
-  ])
-
-  console.log(`Tienes un total de ${resultado[0]} ${to} y los puedes gastar en:${resultado[1].join(', ')}`)
-}
-
-getResultadoPromise('EUR', 'USD', 100)
+test().then(resultado => console.log(resultado))
