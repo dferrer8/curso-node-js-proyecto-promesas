@@ -35,6 +35,6 @@ const getCountriesAsyncAwait = async (currencyCode) => {
   return response.data.map((country) => country.name)
 }
 
-getCountriesAsyncAwait('CAD').then((countries) => {
+getCountriesAsyncAwait('COP').then((countries) => {
   console.log(countries)
 })
