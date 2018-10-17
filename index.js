@@ -1,4 +1,5 @@
 const axios = require('axios')
+
 const exchangeRate = async (from, to) => {
   const response = await axios
     .get(
