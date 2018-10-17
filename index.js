@@ -12,3 +12,9 @@ const exchangeRate = async (from, to) => {
 exchangeRate('JPY', 'USD')
   .then((cambioDivisa) => console.log(cambioDivisa))
   .catch((err) => console.log(err))
+
+// ej. simple para pillarlo
+const test = async () => {
+  return 7
+}
+test().then(resultado => console.log(resultado))
